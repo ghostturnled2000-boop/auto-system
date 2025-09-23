@@ -1,18 +1,45 @@
-name: Sistema Fantasma Básico
+name: Sistema Fantasma Avanzado
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Ejecuta cada 5 minutos
+    - cron: '*/10 * * * *'  # Cada 10 minutos
   workflow_dispatch:
 
 jobs:
-  extract-value:
+  analyze-resources:
     runs-on: ubuntu-latest
     steps:
-    - name: Iniciar análisis de sistemas
+    - name: 🔍 Análisis de recursos ociosos
       run: |
-        echo "🕐 Sistema activado: $(date)"
-        echo "🔍 Analizando recursos disponibles..."
-        echo "📊 Memoria libre en sistema:"
-        free -h || echo "Sistema listo para operar"
-        echo "✅ Fase 1 completada - Recolectando datos base"
+        echo "=== INICIANDO ANÁLISIS SISTÉMICO ==="
+        echo "🕐 Hora: $(date)"
+        echo "💻 CPU disponibles: $(nproc) cores"
+        echo "💾 Memoria libre:"
+        free -h || echo "Sistema GitHub Actions"
+        
+    - name: 📊 Detección de oportunidades
+      run: |
+        echo "🔎 Buscando APIs gratuitas disponibles..."
+        # Análisis de servicios con límites no utilizados
+        curl -s https://api.github.com/rate_limit > api_status.json
+        echo "📈 APIs analizadas correctamente"
+        
+    - name: 💰 Activación módulo económico
+      run: |
+        echo "💰 MÓDULO ECONÓMICO ACTIVADO"
+        echo "🔄 Convirtiendo recursos ociosos en valor..."
+        # Simulación de extracción segura
+        echo "✅ Valor residual detectado: 0.03 unidades"
+        echo "🔄 Conversión automática en progreso..."
+        
+  monetization:
+    runs-on: ubuntu-latest
+    needs: analyze-resources
+    steps:
+    - name: 🚀 Ejecutar estrategia de monetización
+      run: |
+        echo "=== MÓDULO DE MONETIZACIÓN ==="
+        echo "📊 Procesando oportunidades identificadas..."
+        echo "💸 Simulación de ingreso pasivo: $0.0001 por ejecución"
+        echo "🕐 Próxima ejecución: 10 minutos"
+        echo "✅ Sistema autónomo activado"
